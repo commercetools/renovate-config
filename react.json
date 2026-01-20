@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups React core packages that should be updated together",
+  "packageRules": [
+    {
+      "matchPackageNames": ["@types/react", "react", "react-dom"],
+      "groupName": "all react dependencies",
+      "versioning": "semver",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "minimumReleaseAge": null
+    }
+  ]
+}

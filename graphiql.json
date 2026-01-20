@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups GraphiQL packages for GraphQL IDE functionality",
+  "packageRules": [
+    {
+      "matchPackageNames": ["graphiql"],
+      "matchPackagePatterns": ["^@graphiql/"],
+      "groupName": "all graphiql dependencies",
+      "versioning": "semver",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"]
+    }
+  ]
+}

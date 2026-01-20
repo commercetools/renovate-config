@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups all @commercetools-frontend/* packages from merchant-center-application-kit",
+  "packageRules": [
+    {
+      "matchSourceUrls": ["https://github.com/commercetools/merchant-center-application-kit"],
+      "groupName": "all application-kit packages",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "rangeStrategy": "bump",
+      "minimumReleaseAge": null
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups internal frontend extensions packages",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@commercetools-frontend-extensions/change-history",
+        "@commercetools-frontend-extensions/export-resources-modal",
+        "@commercetools-frontend-extensions/import-resources-modal",
+        "@commercetools-frontend-extensions/unpublish-products-modal",
+        "@commercetools-frontend-extensions/delete-resources-modal"
+      ],
+      "groupName": "all internal extensions",
+      "versioning": "semver",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "minimumReleaseAge": null
+    }
+  ]
+}

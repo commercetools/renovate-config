@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Manages pnpm package manager updates",
+  "packageRules": [
+    {
+      "matchPackageNames": ["pnpm"],
+      "groupName": "pnpm"
+    }
+  ]
+}
