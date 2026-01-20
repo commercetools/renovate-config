@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Jest and related testing packages, pinned to v30.x",
+  "packageRules": [
+    {
+      "matchPackageNames": ["jest"],
+      "matchPackagePatterns": ["^jest-", "^@jest/", "^@types/jest$"],
+      "groupName": "all Jest packages"
+    }
+  ]
+}

@@ -19,6 +19,7 @@ This repository provides a collection of modular Renovate configuration presets 
 | **Node.js** | `nodejs.json` | Manages Node.js runtime updates | Repositories tracking Node.js versions |
 | **React** | `react.json` | Groups React core packages (react, react-dom, @types/react) | React applications |
 | **Cypress** | `cypress.json` | Groups Cypress and related E2E testing packages | Repositories using Cypress for testing |
+| **Jest** | `jest.json` | Groups Jest and related testing packages (pinned to v30.x) | Repositories using Jest for testing |
 | **GraphiQL** | `graphiql.json` | Groups GraphiQL packages | Repositories with GraphQL IDE functionality |
 | **pnpm** | `pnpm.json` | Manages pnpm package manager updates | Repositories using pnpm |
 
@@ -68,6 +69,7 @@ For a complete frontend application using all commercetools packages:
     "github>commercetools/renovate-config:nodejs",
     "github>commercetools/renovate-config:react",
     "github>commercetools/renovate-config:cypress",
+    "github>commercetools/renovate-config:jest",
     "github>commercetools/renovate-config:graphiql",
     "github>commercetools/renovate-config:pnpm"
   ]
@@ -114,6 +116,7 @@ Where `preset-name` matches the filename (without `.json` extension).
 - Base config: `github>commercetools/renovate-config`
 - Application Kit: `github>commercetools/renovate-config:application-kit`
 - React: `github>commercetools/renovate-config:react`
+- Jest: `github>commercetools/renovate-config:jest`
 - Node.js: `github>commercetools/renovate-config:nodejs`
 
 ## Version Pinning
@@ -157,7 +160,7 @@ All commercetools-specific presets (`application-kit`, `ui-kit`, `test-data`, `i
 
 ### Third-Party Package Presets
 
-Third-party presets (`react`, `graphiql`, `cypress`, `nodejs`, `pnpm`) follow standard weekly scheduling patterns and use appropriate grouping strategies.
+Third-party presets (`react`, `graphiql`, `cypress`, `jest`, `nodejs`, `pnpm`) follow standard weekly scheduling patterns and use appropriate grouping strategies.
 
 ## Repository-Specific Configuration
 
@@ -281,15 +284,6 @@ Once validated, merge to your default branch and monitor the first few update cy
 **Solution**: Verify package name/pattern matches the preset. You may need to add a local rule or propose updating the shared preset.
 
 ## Maintenance
-
-### Requesting Changes
-
-To request changes to existing presets:
-
-1. Open an issue describing the desired change
-2. Explain the rationale and which repositories would benefit
-3. Propose specific configuration changes
-
 ### Contributing
 
 Contributions are welcome! Please:
