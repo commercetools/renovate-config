@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Base Renovate configuration for commercetools frontend projects",
+  "extends": [
+    "config:best-practices",
+    ":preserveSemverRanges",
+    "schedule:weekly",
+    "security:minimumReleaseAgeNpm"
+  ],
+  "separateMajorMinor": true,
+  "rebaseWhen": "conflicted",
+  "prConcurrentLimit": 1,
+  "branchConcurrentLimit": 2,
+  "prHourlyLimit": 1,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all dependencies"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    }
+  ],
+  "labels": ["🙏 Status: code review needed", "🤖 Type: Dependencies"],
+  "stopUpdatingLabel": "🖐 Status: on hold / postponed"
+}

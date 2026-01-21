@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups GraphQL client packages",
+  "packageRules": [
+    {
+      "matchPackageNames": ["@apollo/client", "graphql"],
+      "groupName": "all apollo-graphql packages"
+    }
+  ]
+}

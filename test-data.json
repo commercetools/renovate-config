@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups test data packages used in testing",
+  "packageRules": [
+    {
+      "matchSourceUrls": ["https://github.com/commercetools/test-data"],
+      "groupName": "all test-data packages",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "minimumReleaseAge": null
+    }
+  ]
+}

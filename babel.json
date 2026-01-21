@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Babel compiler packages",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@babel/"],
+      "matchPackageNames": ["babel-jest", "babel-loader"],
+      "groupName": "all babel packages"
+    }
+  ]
+}

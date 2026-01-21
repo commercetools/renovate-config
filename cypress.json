@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Cypress and related E2E testing packages",
+  "packageRules": [
+    {
+      "matchPackageNames": ["cypress"],
+      "matchPackagePatterns": ["^cypress-"],
+      "groupName": "all Cypress updates"
+    }
+  ]
+}

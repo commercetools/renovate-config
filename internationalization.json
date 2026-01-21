@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups i18n-related packages that should update together to maintain compatibility",
+  "packageRules": [
+    {
+      "matchPackageNames": ["react-intl"],
+      "matchPackagePatterns": ["^@formatjs/"],
+      "groupName": "all internationalization packages",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "minimumReleaseAge": null
+    }
+  ]
+}

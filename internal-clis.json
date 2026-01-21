@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups internal CLI tools and scripts packages",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@commercetools-scripts/", "^@commercetools-frontend/.*-cli$"],
+      "groupName": "all internal CLIs",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "minimumReleaseAge": null
+    }
+  ]
+}
