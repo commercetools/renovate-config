@@ -307,7 +307,7 @@ To propose a new preset:
 3. Provide examples of repositories that would benefit
 4. Show the pattern currently duplicated across repos
 
-## Migration Guide
+## Migration Guide (temp)
 
 To migrate an existing repository to use these shared presets:
 
