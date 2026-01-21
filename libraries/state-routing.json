@@ -6,11 +6,19 @@
       "matchPackageNames": [
         "redux",
         "react-redux",
+        "react-router",
         "react-router-dom",
         "@types/react-redux",
         "@types/react-router-dom"
       ],
       "groupName": "all state and routing packages"
+    },
+    {
+      "matchPackageNames": [
+        "react-router",
+        "react-router-dom"
+      ],
+      "allowedVersions": "< 6"
     }
   ]
 }
