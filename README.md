@@ -2,55 +2,82 @@
 
 Shared Renovate configuration presets for commercetools and organization repositories.
 
+## Repository Structure
+
+```
+renovate-config/
+├── default.json              # Base configuration (extends this for all repos)
+├── platforms/                # Runtime and platform-level presets
+│   ├── nodejs.json          # Node.js runtime version management
+│   └── pnpm.json            # pnpm package manager
+├── libraries/                # Library and dependency ecosystem presets
+│   ├── application-kit.json
+│   ├── ui-kit.json
+│   ├── react.json
+│   ├── testing.json
+│   └── ... (20+ more)
+└── composite/                # Composite presets combining multiple libraries
+    ├── merchant-center-application.json
+    ├── merchant-center-application-kit.json
+    ├── component-library.json
+    └── typescript-service.json
+```
+
 ## Overview
 
-This repository provides a collection of modular Renovate configuration presets that standardize dependency update patterns across commercetools projects.
+This repository provides a collection of modular Renovate configuration presets that standardize dependency update patterns across commercetools projects. Presets are organized into three categories for clarity and maintainability.
 
 ## Available Presets
 
-### Granular Presets
+### Platform Presets
 
-These are fine-grained presets that group related dependencies. Use them individually or combine them via bundle presets.
+Runtime and platform-level configuration.
 
 | Preset | File | Description | When to Use |
 |--------|------|-------------|-------------|
-| **Base** | `default.json` | Foundation configuration with best practices, scheduling, and PR limits | **Required** - All repositories should extend this |
-| **Application Kit** | `application-kit.json` | Groups `@commercetools-frontend/*` packages | Repositories using Merchant Center Application Kit |
-| **UI Kit** | `ui-kit.json` | Groups `@commercetools-uikit/*` packages | Repositories using commercetools UI Kit |
-| **Test Data** | `test-data.json` | Groups `@commercetools-test-data/*` packages | Repositories using commercetools test data |
-| **Internal Extensions** | `internal-extensions.json` | Groups internal frontend extensions | Repositories using extensions like change-history, export-resources-modal, etc. |
-| **Internal CLIs** | `internal-clis.json` | Groups `@commercetools-scripts/*` and CLI tools | Repositories using internal CLI packages |
-| **Node.js** | `nodejs.json` | Manages Node.js runtime and @types/node | Repositories tracking Node.js versions |
-| **React** | `react.json` | Groups React core packages (react, react-dom, @types/react, @types/react-dom) | React applications |
-| **Internationalization** | `internationalization.json` | Groups react-intl and @formatjs/* packages | Applications using internationalization |
-| **Apollo GraphQL** | `apollo-graphql.json` | Groups @apollo/client and graphql | Applications using Apollo Client |
-| **GraphQL Codegen** | `graphql-codegen.json` | Groups @graphql-codegen/* packages | Projects using GraphQL code generation |
-| **State & Routing** | `state-routing.json` | Groups redux, react-redux, react-router-dom and their types | Applications using Redux and React Router |
-| **Emotion** | `emotion.json` | Groups @emotion/* packages | Applications using Emotion CSS-in-JS |
-| **Testing Library** | `testing-library.json` | Groups @testing-library/* packages | Projects using Testing Library |
-| **Testing** | `testing.json` | Combines Jest and Testing Library | Convenience bundle for common testing setup |
-| **TypeScript** | `typescript.json` | Groups TypeScript and generic @types/* | TypeScript projects |
-| **Babel** | `babel.json` | Groups @babel/* packages | Projects using Babel |
-| **Webpack** | `webpack.json` | Groups webpack and webpack-* packages | Projects using Webpack bundler |
-| **Linting** | `linting.json` | Groups eslint, prettier, and their plugins | All projects (code quality) |
-| **PostCSS** | `postcss.json` | Groups postcss and postcss-* plugins | Projects using PostCSS |
-| **Storybook** | `storybook.json` | Groups @storybook/* packages | Component libraries using Storybook |
-| **Test Generators** | `test-generators.json` | Groups @faker-js/faker and casual | Projects generating test data |
-| **Cypress** | `cypress.json` | Groups Cypress and related E2E testing packages | Repositories using Cypress for testing |
-| **Jest** | `jest.json` | Groups Jest and related testing packages | Repositories using Jest for testing |
-| **GraphiQL** | `graphiql.json` | Groups GraphiQL packages | Repositories with GraphQL IDE functionality |
-| **pnpm** | `pnpm.json` | Manages pnpm package manager updates | Repositories using pnpm |
+| **Node.js** | `platforms/nodejs.json` | Manages Node.js runtime and @types/node | Repositories tracking Node.js versions |
+| **pnpm** | `platforms/pnpm.json` | Manages pnpm package manager updates | Repositories using pnpm |
 
-### High-Level Bundle Presets
+### Library Presets
 
-These bundle presets combine multiple granular presets for common repository types, reducing configuration complexity.
+Fine-grained presets that group related dependencies by ecosystem. Use them individually or combine them via bundle presets.
+
+| Preset | File | Description | When to Use |
+|--------|------|-------------|-------------|
+| **Application Kit** | `libraries/application-kit.json` | Groups `@commercetools-frontend/*` packages | Repositories using Merchant Center Application Kit |
+| **UI Kit** | `libraries/ui-kit.json` | Groups `@commercetools-uikit/*` packages | Repositories using commercetools UI Kit |
+| **Test Data** | `libraries/test-data.json` | Groups `@commercetools-test-data/*` packages | Repositories using commercetools test data |
+| **Internal Extensions** | `libraries/internal-extensions.json` | Groups internal frontend extensions | Repositories using extensions like change-history, export-resources-modal, etc. |
+| **Internal CLIs** | `libraries/internal-clis.json` | Groups `@commercetools-scripts/*` and CLI tools | Repositories using internal CLI packages |
+| **React** | `libraries/react.json` | Groups React core packages (react, react-dom, @types/react, @types/react-dom) | React applications |
+| **Internationalization** | `libraries/internationalization.json` | Groups react-intl and @formatjs/* packages | Applications using internationalization |
+| **Apollo GraphQL** | `libraries/apollo-graphql.json` | Groups @apollo/client and graphql | Applications using Apollo Client |
+| **GraphQL Codegen** | `libraries/graphql-codegen.json` | Groups @graphql-codegen/* packages | Projects using GraphQL code generation |
+| **State & Routing** | `libraries/state-routing.json` | Groups redux, react-redux, react-router-dom and their types | Applications using Redux and React Router |
+| **Emotion** | `libraries/emotion.json` | Groups @emotion/* packages | Applications using Emotion CSS-in-JS |
+| **Testing Library** | `libraries/testing-library.json` | Groups @testing-library/* packages | Projects using Testing Library |
+| **Testing** | `libraries/testing.json` | Combines Jest and Testing Library | Convenience bundle for common testing setup |
+| **TypeScript** | `libraries/typescript.json` | Groups TypeScript and generic @types/* | TypeScript projects |
+| **Babel** | `libraries/babel.json` | Groups @babel/* packages | Projects using Babel |
+| **Webpack** | `libraries/webpack.json` | Groups webpack and webpack-* packages | Projects using Webpack bundler |
+| **Linting** | `libraries/linting.json` | Groups eslint, prettier, and their plugins | All projects (code quality) |
+| **PostCSS** | `libraries/postcss.json` | Groups postcss and postcss-* plugins | Projects using PostCSS |
+| **Storybook** | `libraries/storybook.json` | Groups @storybook/* packages | Component libraries using Storybook |
+| **Test Generators** | `libraries/test-generators.json` | Groups @faker-js/faker and casual | Projects generating test data |
+| **Cypress** | `libraries/cypress.json` | Groups Cypress and related E2E testing packages | Repositories using Cypress for testing |
+| **Jest** | `libraries/jest.json` | Groups Jest and related testing packages | Repositories using Jest for testing |
+| **GraphiQL** | `libraries/graphiql.json` | Groups GraphiQL packages | Repositories with GraphQL IDE functionality |
+
+### Composite Bundle Presets
+
+These bundle presets combine multiple library presets for common repository types, reducing configuration complexity.
 
 | Bundle | File | Description | Target Repositories |
 |--------|------|-------------|---------------------|
-| **Merchant Center Application** | `bundle-merchant-center-application.json` | Complete stack for full Merchant Center applications | merchant-center-frontend, audit-log, merchant-center-prices, merchant-center-operations, merchant-center-services |
-| **Framework Toolkit** | `bundle-framework-toolkit.json` | For developing the Application Kit framework itself | merchant-center-application-kit |
-| **Component Library** | `bundle-component-library.json` | For UI component library development with Storybook | ui-kit |
-| **Utility Library** | `bundle-utility-library.json` | Minimal preset for utility and test libraries without UI | test-data |
+| **Merchant Center Application** | `composite/merchant-center-application.json` | Complete stack for full Merchant Center applications | merchant-center-frontend, audit-log, merchant-center-prices, merchant-center-operations, merchant-center-services |
+| **Merchant Center Application Kit** | `composite/merchant-center-application-kit.json` | For developing the Application Kit framework itself | merchant-center-application-kit |
+| **Component Library** | `composite/component-library.json` | For UI component library development with Storybook | ui-kit |
+| **TypeScript Service** | `composite/typescript-service.json` | Minimal preset for utility and test libraries without UI | test-data |
 
 ## Usage
 
@@ -74,16 +101,16 @@ Extend only the presets for dependencies your repository actually uses:
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:nodejs",
-    "github>commercetools/renovate-config:react",
-    "github>commercetools/renovate-config:pnpm"
+    "github>commercetools/renovate-config:platforms/nodejs",
+    "github>commercetools/renovate-config:libraries/react",
+    "github>commercetools/renovate-config:platforms/pnpm"
   ]
 }
 ```
 
-### Using Bundle Presets
+### Using Composite Presets
 
-Bundle presets provide a simplified configuration for common repository types:
+Composite presets provide a simplified configuration for common repository types:
 
 #### Merchant Center Application
 
@@ -92,18 +119,18 @@ For full Merchant Center applications (merchant-center-frontend, audit-log, etc.
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"]
 }
 ```
 
-#### Framework Toolkit
+#### Merchant Center Application Kit
 
 For developing the Application Kit framework:
 
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-framework-toolkit"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application-kit"]
 }
 ```
 
@@ -114,18 +141,18 @@ For UI component libraries like ui-kit:
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-component-library"]
+  "extends": ["github>commercetools/renovate-config:composite/component-library"]
 }
 ```
 
-#### Utility Library
+#### TypeScript Service
 
 For utility and test libraries without UI:
 
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-utility-library"]
+  "extends": ["github>commercetools/renovate-config:composite/typescript-service"]
 }
 ```
 
@@ -138,8 +165,8 @@ Combine shared presets with local configuration for repository-specific needs:
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:nodejs",
-    "github>commercetools/renovate-config:react"
+    "github>commercetools/renovate-config:platforms/nodejs",
+    "github>commercetools/renovate-config:libraries/react"
   ],
   "gitAuthor": "Renovate Bot <bot@example.com>",
   "reviewers": ["team:frontend"],
@@ -159,26 +186,29 @@ Combine shared presets with local configuration for repository-specific needs:
 Use the standard Renovate preset syntax:
 
 ```
-github>commercetools/renovate-config:preset-name
+github>commercetools/renovate-config:folder/preset-name
 ```
 
-Where `preset-name` matches the filename (without `.json` extension).
+Where `folder/preset-name` matches the file path (without `.json` extension).
 
 ### Examples
 
-**Base and Granular Presets:**
-- Base config: `github>commercetools/renovate-config`
-- Application Kit: `github>commercetools/renovate-config:application-kit`
-- React: `github>commercetools/renovate-config:react`
-- Testing (convenience): `github>commercetools/renovate-config:testing`
-- TypeScript: `github>commercetools/renovate-config:typescript`
-- Internationalization: `github>commercetools/renovate-config:internationalization`
+**Platform Presets:**
+- Node.js: `github>commercetools/renovate-config:platforms/nodejs`
+- pnpm: `github>commercetools/renovate-config:platforms/pnpm`
 
-**Bundle Presets:**
-- Merchant Center Application: `github>commercetools/renovate-config:bundle-merchant-center-application`
-- Framework Toolkit: `github>commercetools/renovate-config:bundle-framework-toolkit`
-- Component Library: `github>commercetools/renovate-config:bundle-component-library`
-- Utility Library: `github>commercetools/renovate-config:bundle-utility-library`
+**Library Presets:**
+- Application Kit: `github>commercetools/renovate-config:libraries/application-kit`
+- React: `github>commercetools/renovate-config:libraries/react`
+- Testing (convenience): `github>commercetools/renovate-config:libraries/testing`
+- TypeScript: `github>commercetools/renovate-config:libraries/typescript`
+- Internationalization: `github>commercetools/renovate-config:libraries/internationalization`
+
+**Composite Presets:**
+- Merchant Center Application: `github>commercetools/renovate-config:composite/merchant-center-application`
+- Merchant Center Application Kit: `github>commercetools/renovate-config:composite/merchant-center-application-kit`
+- Component Library: `github>commercetools/renovate-config:composite/component-library`
+- TypeScript Service: `github>commercetools/renovate-config:composite/typescript-service`
 
 ## Version Pinning
 
@@ -321,8 +351,8 @@ Review your current `.github/renovate.json` and identify:
 {
   "extends": [
     "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:react",
-    "github>commercetools/renovate-config:cypress"
+    "github>commercetools/renovate-config:libraries/react",
+    "github>commercetools/renovate-config:libraries/cypress"
   ]
 }
 ```
@@ -347,11 +377,11 @@ Once validated, merge to your default branch and monitor the first few update cy
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"]
 }
 ```
 
-This bundle includes: default, application-kit, ui-kit, test-data, internal-extensions, internal-clis, nodejs, pnpm, react, internationalization, apollo-graphql, graphql-codegen, state-routing, emotion, testing, cypress, typescript, babel, webpack, linting, postcss, graphiql.
+This composite includes: default, libraries/application-kit, libraries/ui-kit, libraries/test-data, libraries/internal-extensions, libraries/internal-clis, platforms/nodejs, platforms/pnpm, libraries/react, libraries/internationalization, libraries/apollo-graphql, libraries/graphql-codegen, libraries/state-routing, libraries/emotion, libraries/testing, libraries/cypress, libraries/typescript, libraries/babel, libraries/webpack, libraries/linting, libraries/postcss, libraries/graphiql.
 
 ### ui-kit
 
@@ -360,11 +390,11 @@ This bundle includes: default, application-kit, ui-kit, test-data, internal-exte
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-component-library"]
+  "extends": ["github>commercetools/renovate-config:composite/component-library"]
 }
 ```
 
-This bundle includes: default, test-data, nodejs, pnpm, react, internationalization, emotion, testing, typescript, babel, webpack, linting, postcss, storybook, test-generators.
+This composite includes: default, libraries/test-data, platforms/nodejs, platforms/pnpm, libraries/react, libraries/internationalization, libraries/emotion, libraries/testing, libraries/typescript, libraries/babel, libraries/webpack, libraries/linting, libraries/postcss, libraries/storybook, libraries/test-generators.
 
 ### audit-log
 
@@ -373,7 +403,7 @@ This bundle includes: default, test-data, nodejs, pnpm, react, internationalizat
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"],
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"],
   "packageRules": [
     {
       "description": "Add backend-specific dependency rules here if needed",
@@ -393,13 +423,13 @@ Uses the full application bundle with option to add backend-specific rules.
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-framework-toolkit"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application-kit"]
 }
 ```
 
-This bundle includes: default, ui-kit, test-data, nodejs, pnpm, react, internationalization, apollo-graphql, graphql-codegen, state-routing, emotion, testing, cypress, typescript, babel, webpack, linting, postcss.
+This composite includes: default, libraries/ui-kit, libraries/test-data, platforms/nodejs, platforms/pnpm, libraries/react, libraries/internationalization, libraries/apollo-graphql, libraries/graphql-codegen, libraries/state-routing, libraries/emotion, libraries/testing, libraries/cypress, libraries/typescript, libraries/babel, libraries/webpack, libraries/linting, libraries/postcss.
 
-**Note:** Excludes `application-kit` (can't depend on itself), `internal-extensions`, `internal-clis`, and `graphiql`.
+**Note:** Excludes `libraries/application-kit` (can't depend on itself), `libraries/internal-extensions`, `libraries/internal-clis`, and `libraries/graphiql`.
 
 ### merchant-center-prices
 
@@ -408,7 +438,7 @@ This bundle includes: default, ui-kit, test-data, nodejs, pnpm, react, internati
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"]
 }
 ```
 
@@ -421,7 +451,7 @@ Full Merchant Center application stack.
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"]
 }
 ```
 
@@ -434,7 +464,7 @@ Full Merchant Center application stack.
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"]
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"]
 }
 ```
 
@@ -447,29 +477,29 @@ Full Merchant Center application stack.
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-utility-library"]
+  "extends": ["github>commercetools/renovate-config:composite/typescript-service"]
 }
 ```
 
-This bundle includes: default, nodejs, pnpm, testing, typescript, babel, linting, test-generators.
+This composite includes: default, platforms/nodejs, platforms/pnpm, libraries/testing, libraries/typescript, libraries/babel, libraries/linting, libraries/test-generators.
 
-**Note:** Excludes all UI-related packages (react, emotion, webpack, postcss, etc.).
+**Note:** This preset is ideal for TypeScript-based services and utilities without UI dependencies.
 
 ## Customizing Bundle Presets
 
 If a bundle preset includes more than you need, you can:
 
-### Option 1: Use Individual Granular Presets
+### Option 1: Use Individual Presets
 
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:nodejs",
-    "github>commercetools/renovate-config:react",
-    "github>commercetools/renovate-config:testing",
-    "github>commercetools/renovate-config:typescript"
+    "github>commercetools/renovate-config:platforms/nodejs",
+    "github>commercetools/renovate-config:libraries/react",
+    "github>commercetools/renovate-config:libraries/testing",
+    "github>commercetools/renovate-config:libraries/typescript"
   ]
 }
 ```
@@ -479,7 +509,7 @@ If a bundle preset includes more than you need, you can:
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config:bundle-merchant-center-application"],
+  "extends": ["github>commercetools/renovate-config:composite/merchant-center-application"],
   "ignoreDeps": ["specific-package-to-ignore"],
   "packageRules": [
     {
