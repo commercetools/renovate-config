@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Storybook development environment",
+  "packageRules": [
+    {
+      "matchPackageNames": ["storybook"],
+      "matchPackagePatterns": ["^@storybook/"],
+      "groupName": "all storybook packages"
+    }
+  ]
+}

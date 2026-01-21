@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "For developing the Application Kit framework itself",
+  "extends": [
+    "github>commercetools/renovate-config",
+    "github>commercetools/renovate-config:ui-kit",
+    "github>commercetools/renovate-config:test-data",
+    "github>commercetools/renovate-config:nodejs",
+    "github>commercetools/renovate-config:pnpm",
+    "github>commercetools/renovate-config:react",
+    "github>commercetools/renovate-config:internationalization",
+    "github>commercetools/renovate-config:apollo-graphql",
+    "github>commercetools/renovate-config:graphql-codegen",
+    "github>commercetools/renovate-config:state-routing",
+    "github>commercetools/renovate-config:emotion",
+    "github>commercetools/renovate-config:testing",
+    "github>commercetools/renovate-config:cypress",
+    "github>commercetools/renovate-config:typescript",
+    "github>commercetools/renovate-config:babel",
+    "github>commercetools/renovate-config:webpack",
+    "github>commercetools/renovate-config:linting",
+    "github>commercetools/renovate-config:postcss"
+  ]
+}

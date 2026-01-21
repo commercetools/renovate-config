@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Testing Library packages",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@testing-library/"],
+      "groupName": "all testing-library packages"
+    }
+  ]
+}

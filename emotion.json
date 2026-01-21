@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups Emotion CSS-in-JS packages",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@emotion/"],
+      "groupName": "all emotion packages"
+    }
+  ]
+}

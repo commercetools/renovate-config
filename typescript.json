@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups TypeScript and generic type definitions",
+  "packageRules": [
+    {
+      "matchPackageNames": ["typescript", "ts-node", "tslib"],
+      "matchPackagePatterns": ["^@types/"],
+      "excludePackageNames": [
+        "@types/react",
+        "@types/react-dom",
+        "@types/node",
+        "@types/jest",
+        "@types/react-redux",
+        "@types/react-router-dom"
+      ],
+      "groupName": "all typescript packages"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups PostCSS and plugins (bundler-agnostic)",
+  "packageRules": [
+    {
+      "matchPackageNames": ["postcss", "autoprefixer"],
+      "matchPackagePatterns": ["^postcss-"],
+      "excludePackageNames": ["postcss-loader"],
+      "groupName": "all postcss packages"
+    }
+  ]
+}

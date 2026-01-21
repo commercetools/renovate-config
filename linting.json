@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups code quality and formatting tools",
+  "packageRules": [
+    {
+      "matchPackageNames": ["eslint", "prettier"],
+      "matchPackagePatterns": ["^eslint-", "^@eslint/", "^eslint-plugin-", "^prettier-plugin-"],
+      "groupName": "all linting packages"
+    }
+  ]
+}
