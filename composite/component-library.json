@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "For UI component library development",
+  "extends": [
+    "github>commercetools/renovate-config",
+    "github>commercetools/renovate-config:libraries/test-data",
+    "github>commercetools/renovate-config:platforms/nodejs",
+    "github>commercetools/renovate-config:platforms/pnpm",
+    "github>commercetools/renovate-config:libraries/react",
+    "github>commercetools/renovate-config:libraries/internationalization",
+    "github>commercetools/renovate-config:libraries/emotion",
+    "github>commercetools/renovate-config:libraries/testing",
+    "github>commercetools/renovate-config:libraries/typescript",
+    "github>commercetools/renovate-config:libraries/babel",
+    "github>commercetools/renovate-config:libraries/webpack",
+    "github>commercetools/renovate-config:libraries/linting",
+    "github>commercetools/renovate-config:libraries/postcss",
+    "github>commercetools/renovate-config:libraries/storybook",
+    "github>commercetools/renovate-config:libraries/test-generators"
+  ]
+}
