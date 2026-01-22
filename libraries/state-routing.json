@@ -8,8 +8,10 @@
         "react-redux",
         "react-router",
         "react-router-dom",
+        "history",
         "@types/react-redux",
-        "@types/react-router-dom"
+        "@types/react-router-dom",
+        "@types/history"
       ],
       "groupName": "all state and routing packages"
     },
@@ -19,6 +21,13 @@
         "react-router-dom"
       ],
       "allowedVersions": "< 6"
+    },
+    {
+      "matchPackageNames": [
+        "history",
+        "@types/history"
+      ],
+      "allowedVersions": "< 5"
     }
   ]
 }

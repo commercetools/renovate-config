@@ -25,6 +25,6 @@
       "rangeStrategy": "widen"
     }
   ],
-  "labels": ["🙏 Status: code review needed", "🤖 Type: Dependencies"],
-  "stopUpdatingLabel": "🖐 Status: on hold / postponed"
+  "labels": ["🤖 Type: Dependencies"],
+  "stopUpdatingLabel": "🖐 Status: On Hold"
 }
