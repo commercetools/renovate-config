@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups git workflow tools for commit linting and pre-commit hooks",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@commitlint/cli",
+        "@commitlint/config-conventional",
+        "husky",
+        "lint-staged"
+      ],
+      "groupName": "all git workflow tools"
+    }
+  ]
+}

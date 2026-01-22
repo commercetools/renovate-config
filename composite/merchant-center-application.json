@@ -22,6 +22,7 @@
     "github>commercetools/renovate-config:libraries/babel",
     "github>commercetools/renovate-config:libraries/webpack",
     "github>commercetools/renovate-config:libraries/linting",
+    "github>commercetools/renovate-config:libraries/git-workflow",
     "github>commercetools/renovate-config:libraries/postcss",
     "github>commercetools/renovate-config:libraries/graphiql",
     "github>commercetools/renovate-config:libraries/flopflip",

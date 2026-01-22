@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups test mocking libraries for API mocking and fake data generation",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "msw",
+        "@faker-js/faker",
+        "casual"
+      ],
+      "groupName": "all test mocking packages"
+    }
+  ]
+}

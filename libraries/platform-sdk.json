@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups commercetools platform SDK packages",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@commercetools/platform-sdk",
+        "@commercetools/sync-actions"
+      ],
+      "groupName": "all commercetools platform packages",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"]
+    }
+  ]
+}

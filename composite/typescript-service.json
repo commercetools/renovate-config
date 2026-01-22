@@ -9,6 +9,6 @@
     "github>commercetools/renovate-config:libraries/typescript",
     "github>commercetools/renovate-config:libraries/babel",
     "github>commercetools/renovate-config:libraries/linting",
-    "github>commercetools/renovate-config:libraries/test-generators"
+    "github>commercetools/renovate-config:libraries/git-workflow"
   ]
 }
