@@ -17,6 +17,7 @@
     "github>commercetools/renovate-config:libraries/internationalization",
     "github>commercetools/renovate-config:libraries/linting",
     "github>commercetools/renovate-config:libraries/moment",
+    "github>commercetools/renovate-config:libraries/platform-sdk",
     "github>commercetools/renovate-config:libraries/postcss",
     "github>commercetools/renovate-config:libraries/react",
     "github>commercetools/renovate-config:libraries/state-routing",

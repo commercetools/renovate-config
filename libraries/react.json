@@ -4,10 +4,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["@types/react", "@types/react-dom", "react", "react-dom"],
-      "groupName": "all react dependencies",
-      "versioning": "semver",
-      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
-      "minimumReleaseAge": null
+      "groupName": "all react dependencies"
     }
   ]
 }
