@@ -3,12 +3,12 @@
   "description": "Preset for TypeScript services and utilities without UI dependencies",
   "extends": [
     "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:platforms/nodejs",
-    "github>commercetools/renovate-config:platforms/pnpm",
+    "github>commercetools/renovate-config:libraries/babel",
+    "github>commercetools/renovate-config:libraries/git-workflow",
+    "github>commercetools/renovate-config:libraries/linting",
     "github>commercetools/renovate-config:libraries/testing",
     "github>commercetools/renovate-config:libraries/typescript",
-    "github>commercetools/renovate-config:libraries/babel",
-    "github>commercetools/renovate-config:libraries/linting",
-    "github>commercetools/renovate-config:libraries/git-workflow"
+    "github>commercetools/renovate-config:platforms/nodejs",
+    "github>commercetools/renovate-config:platforms/pnpm"
   ]
 }
