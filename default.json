@@ -8,6 +8,7 @@
     "schedule:nonOfficeHours",
     "security:minimumReleaseAgeNpm"
   ],
+  "gitAuthor": "Merchant Center Automation <merchant.center.automation+renovate@commercetools.com>",
   "separateMajorMinor": true,
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 1,
