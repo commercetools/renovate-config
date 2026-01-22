@@ -14,6 +14,10 @@
         "@types/react-router-dom"
       ],
       "groupName": "all typescript packages"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "< 6"
     }
   ]
 }
