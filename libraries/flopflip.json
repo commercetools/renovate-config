@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups flopflip feature toggle packages",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@flopflip/"],
+      "groupName": "all flopflip packages"
+    }
+  ]
+}

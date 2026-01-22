@@ -23,6 +23,8 @@
     "github>commercetools/renovate-config:libraries/webpack",
     "github>commercetools/renovate-config:libraries/linting",
     "github>commercetools/renovate-config:libraries/postcss",
-    "github>commercetools/renovate-config:libraries/graphiql"
+    "github>commercetools/renovate-config:libraries/graphiql",
+    "github>commercetools/renovate-config:libraries/flopflip",
+    "github>commercetools/renovate-config:libraries/moment"
   ]
 }

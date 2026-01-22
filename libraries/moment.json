@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups moment date/time packages",
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "moment",
+        "moment-timezone",
+        "@types/moment",
+        "@types/moment-timezone"
+      ],
+      "groupName": "all moment packages"
+    }
+  ]
+}
