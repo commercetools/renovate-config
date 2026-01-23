@@ -2,13 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Preset for TypeScript services and utilities without UI dependencies",
   "extends": [
-    "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:libraries/babel",
-    "github>commercetools/renovate-config:libraries/git-workflow",
-    "github>commercetools/renovate-config:libraries/linting",
-    "github>commercetools/renovate-config:libraries/testing",
-    "github>commercetools/renovate-config:libraries/typescript",
-    "github>commercetools/renovate-config:platforms/nodejs",
-    "github>commercetools/renovate-config:platforms/pnpm"
+    "local>commercetools/renovate-config:pull-request-config",
+    "local>commercetools/renovate-config:libraries/babel",
+    "local>commercetools/renovate-config:libraries/git-workflow",
+    "local>commercetools/renovate-config:libraries/linting",
+    "local>commercetools/renovate-config:libraries/testing",
+    "local>commercetools/renovate-config:libraries/typescript",
+    "local>commercetools/renovate-config:platforms/nodejs",
+    "local>commercetools/renovate-config:platforms/pnpm"
   ]
 }

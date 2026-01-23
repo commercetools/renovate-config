@@ -88,7 +88,7 @@ The simplest configuration extends only the base preset:
 ```json
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>commercetools/renovate-config"]
+  "extends": ["local>commercetools/renovate-config"]
 }
 ```
 
@@ -100,10 +100,10 @@ Extend only the presets for dependencies your repository actually uses:
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>commercetools/renovate-config",
-    "github>commercetools/renovate-config:platforms/nodejs",
-    "github>commercetools/renovate-config:libraries/react",
-    "github>commercetools/renovate-config:platforms/pnpm"
+    "local>commercetools/renovate-config:pull-request-config",
+    "local>commercetools/renovate-config:platforms/nodejs",
+    "local>commercetools/renovate-config:libraries/react",
+    "local>commercetools/renovate-config:platforms/pnpm"
   ]
 }
 ```
@@ -164,7 +164,7 @@ Combine shared presets with local configuration for repository-specific needs:
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>commercetools/renovate-config",
+    "github>commercetools/pull-request-config",
     "github>commercetools/renovate-config:platforms/nodejs",
     "github>commercetools/renovate-config:libraries/react"
   ],
