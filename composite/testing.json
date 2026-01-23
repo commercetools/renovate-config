@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Convenience bundle combining common testing tools (Jest, Testing Library, and test mocking)",
+  "extends": [
+    "github>commercetools/renovate-config//libraries/jest.json",
+    "github>commercetools/renovate-config//libraries/testing-library.json",
+    "github>commercetools/renovate-config//libraries/test-mocking.json"
+  ]
+}

@@ -11,9 +11,6 @@
   "gitAuthor": "Merchant Center Automation <merchant.center.automation+renovate@commercetools.com>",
   "separateMajorMinor": true,
   "rebaseWhen": "conflicted",
-  "prConcurrentLimit": 1,
-  "branchConcurrentLimit": 2,
-  "prHourlyLimit": 1,
   "lockFileMaintenance": {
     "enabled": true
   },
