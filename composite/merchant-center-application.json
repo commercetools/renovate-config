@@ -16,6 +16,7 @@
     "github>commercetools/renovate-config//libraries/internal-extensions.json",
     "github>commercetools/renovate-config//libraries/internationalization.json",
     "github>commercetools/renovate-config//libraries/linting.json",
+    "github>commercetools/renovate-config//libraries/prettier.json",
     "github>commercetools/renovate-config//libraries/moment.json",
     "github>commercetools/renovate-config//libraries/platform-sdk.json",
     "github>commercetools/renovate-config//libraries/postcss.json",

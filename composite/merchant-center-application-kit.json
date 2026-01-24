@@ -12,6 +12,7 @@
     "github>commercetools/renovate-config//libraries/graphql-codegen.json",
     "github>commercetools/renovate-config//libraries/internationalization.json",
     "github>commercetools/renovate-config//libraries/linting.json",
+    "github>commercetools/renovate-config//libraries/prettier.json",
     "github>commercetools/renovate-config//libraries/postcss.json",
     "github>commercetools/renovate-config//libraries/react.json",
     "github>commercetools/renovate-config//libraries/state-routing.json",

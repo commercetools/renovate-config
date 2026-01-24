@@ -10,6 +10,7 @@
     "github>commercetools/renovate-config//libraries/graphql-codegen.json",
     "github>commercetools/renovate-config//libraries/internal-clis.json",
     "github>commercetools/renovate-config//libraries/linting.json",
+    "github>commercetools/renovate-config//libraries/prettier.json",
     "github>commercetools/renovate-config//libraries/test-data.json",
     "github>commercetools/renovate-config//libraries/typescript.json",
     "github>commercetools/renovate-config//composite/testing.json",

@@ -8,6 +8,7 @@
     "github>commercetools/renovate-config//libraries/git-workflow.json",
     "github>commercetools/renovate-config//libraries/internationalization.json",
     "github>commercetools/renovate-config//libraries/linting.json",
+    "github>commercetools/renovate-config//libraries/prettier.json",
     "github>commercetools/renovate-config//libraries/postcss.json",
     "github>commercetools/renovate-config//libraries/react.json",
     "github>commercetools/renovate-config//libraries/storybook.json",

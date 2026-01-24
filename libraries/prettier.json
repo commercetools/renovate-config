@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups code formatting tools",
+  "packageRules": [
+    {
+      "matchPackageNames": ["prettier"],
+      "matchPackagePatterns": ["^prettier-plugin-"],
+      "groupName": "all prettier packages"
+    }
+  ]
+}
