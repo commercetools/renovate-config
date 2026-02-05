@@ -1,0 +1,109 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Security-focused configuration for package vulnerabilities and security patches across all package managers",
+  "extends": [
+    "security:openssf-scorecard"
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchCurrentVersion": "/.*-security$/",
+      "groupName": "security patches",
+      "schedule": ["at any time"],
+      "labels": ["🔒 Security Patch"],
+      "minimumReleaseAge": null,
+      "prPriority": 10
+    },
+    {
+      "matchPackageNames": ["*"],
+      "vulnerabilityFixPrPriority": 20,
+      "vulnerabilityFixGroupName": "security vulnerabilities",
+      "vulnerabilityFixSchedule": ["at any time"],
+      "vulnerabilityFixLabels": ["🚨 Security Vulnerability"],
+      "vulnerabilityFixMinimumReleaseAge": null
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchPackageNames": ["*"],
+      "labels": ["📦 Patch Update"],
+      "schedule": ["before 10am on weekdays"],
+      "minimumReleaseAge": "1 day"
+    },
+    {
+      "matchManagers": ["pip_requirements", "pip_setup", "pipenv", "poetry"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Python security patches",
+      "schedule": ["at any time"],
+      "labels": ["🐍 Python Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["maven", "gradle", "gradle-wrapper"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Java security patches",
+      "schedule": ["at any time"],
+      "labels": ["☕ Java Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Go security patches",
+      "schedule": ["at any time"],
+      "labels": ["🐹 Go Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["cargo"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Rust security patches",
+      "schedule": ["at any time"],
+      "labels": ["🦀 Rust Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["composer"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "PHP security patches",
+      "schedule": ["at any time"],
+      "labels": ["🐘 PHP Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["bundler"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Ruby security patches",
+      "schedule": ["at any time"],
+      "labels": ["💎 Ruby Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["nuget"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": ".NET security patches",
+      "schedule": ["at any time"],
+      "labels": ["🔷 .NET Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    },
+    {
+      "matchManagers": ["pub"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "Dart/Flutter security patches",
+      "schedule": ["at any time"],
+      "labels": ["🎯 Dart Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 12
+    }
+  ]
+}
