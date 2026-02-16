@@ -5,6 +5,7 @@
     "github>commercetools/renovate-config//libraries/security.json#feature/security-preset",
     "github>commercetools/renovate-config//platforms/security.json#feature/security-preset"
   ],
+  "semanticCommits": "enabled",
   "prConcurrentLimit": 8,
   "branchConcurrentLimit": 15
 }
