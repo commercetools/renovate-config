@@ -1,12 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Security updates for infrastructure, Docker images, CI/CD, and platform components",
+  "description": "Security updates for infrastructure: Docker images and CI/CD",
   "packageRules": [
     {
       "matchManagers": ["dockerfile", "docker-compose"],
-      "matchPackageNames": ["node", "alpine", "ubuntu", "debian", "nginx", "redis", "postgres", "mysql", "python", "golang", "openjdk", "ruby"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "Docker base image security updates",
+      "matchUpdateTypes": ["patch", "minor", "major"],
+      "groupName": "Docker image security updates",
       "schedule": ["at any time"],
       "labels": ["🐳 Docker Security"],
       "minimumReleaseAge": "1 day",
@@ -18,24 +17,6 @@
       "groupName": "GitHub Actions security updates",
       "schedule": ["at any time"],
       "labels": ["⚡ Actions Security"],
-      "minimumReleaseAge": "1 day",
-      "prPriority": 13
-    },
-    {
-      "matchManagers": ["terraform"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "Terraform provider security updates",
-      "schedule": ["at any time"],
-      "labels": ["🏗️ Terraform Security"],
-      "minimumReleaseAge": "1 day",
-      "prPriority": 13
-    },
-    {
-      "matchManagers": ["helm-values", "kubernetes"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "Kubernetes security updates",
-      "schedule": ["at any time"],
-      "labels": ["☸️ K8s Security"],
       "minimumReleaseAge": "1 day",
       "prPriority": 13
     }
