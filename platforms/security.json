@@ -1,9 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Security updates for infrastructure: Docker images and CI/CD",
+  "description": "Security updates for infrastructure: Docker images, CI/CD, and Helm charts",
   "packageRules": [
     {
-      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchCategories": ["docker"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "Docker image security updates",
       "schedule": ["at any time"],
@@ -12,13 +12,22 @@
       "prPriority": 15
     },
     {
-      "matchManagers": ["github-actions"],
+      "matchCategories": ["ci"],
       "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "GitHub Actions security updates",
+      "groupName": "CI/CD security updates",
       "schedule": ["at any time"],
-      "labels": ["⚡ Actions Security"],
+      "labels": ["⚡ CI/CD Security"],
       "minimumReleaseAge": "1 day",
       "prPriority": 13
+    },
+    {
+      "matchCategories": ["helm"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "Helm chart security updates",
+      "schedule": ["at any time"],
+      "labels": ["⎈ Helm Security"],
+      "minimumReleaseAge": "1 day",
+      "prPriority": 14
     }
   ]
 }
