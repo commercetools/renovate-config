@@ -3,7 +3,7 @@
   "description": "Manages Node.js runtime updates",
   "packageRules": [
     {
-      "matchPackageNames": ["node", "!calico/node", "!kindest/node", "//node$/", "@types/node"],
+      "matchPackageNames": ["node", "!calico/node", "!kindest/node", "/node$/", "@types/node"],
       "groupName": "all Node.js updates"
     }
   ]
