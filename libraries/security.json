@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Vulnerability detection and remediation for library dependencies via GitHub Dependabot and OSV.dev",
+  "extends": [
+    "security:openssf-scorecard"
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["🚨 Security Vulnerability"]
+  },
+  "osvVulnerabilityAlerts": true
+}
