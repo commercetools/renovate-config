@@ -6,9 +6,7 @@
   ],
   "vulnerabilityAlerts": {
     "enabled": true,
-    "labels": ["🚨 Security Vulnerability"],
-    "minimumReleaseAge": null,
-    "prCreation": "immediate"
+    "labels": ["🚨 Security Vulnerability"]
   },
   "osvVulnerabilityAlerts": true
 }
