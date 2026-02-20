@@ -1,21 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Security-focused configuration for package vulnerabilities across all package managers",
+  "description": "Vulnerability detection and remediation for library dependencies via GitHub Dependabot and OSV.dev",
   "extends": [
     "security:openssf-scorecard"
   ],
   "vulnerabilityAlerts": {
-    "enabled": true
+    "enabled": true,
+    "labels": ["🚨 Security Vulnerability"],
+    "minimumReleaseAge": null,
+    "prCreation": "immediate"
   },
-  "osvVulnerabilityAlerts": true,
-  "packageRules": [
-    {
-      "matchPackageNames": ["*"],
-      "vulnerabilityFixPrPriority": 20,
-      "vulnerabilityFixGroupName": "security vulnerabilities",
-      "vulnerabilityFixSchedule": ["at any time"],
-      "vulnerabilityFixLabels": ["🚨 Security Vulnerability"],
-      "vulnerabilityFixMinimumReleaseAge": null
-    }
-  ]
+  "osvVulnerabilityAlerts": true
 }
