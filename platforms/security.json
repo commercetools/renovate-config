@@ -6,7 +6,6 @@
       "description": "Update Docker images weekly on Mondays before 9am",
       "matchCategories": ["docker"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "groupName": "Docker image updates",
       "schedule": ["* 0-8 * * 1"],
       "labels": ["🐳 Docker"],
       "minimumReleaseAge": "1 day"
@@ -15,7 +14,6 @@
       "description": "Update CI/CD actions weekly on Mondays before 9am",
       "matchCategories": ["ci"],
       "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "CI/CD updates",
       "schedule": ["* 0-8 * * 1"],
       "labels": ["⚡ CI/CD"],
       "minimumReleaseAge": "1 day"
@@ -24,7 +22,6 @@
       "description": "Update Helm charts weekly on Mondays before 9am",
       "matchCategories": ["helm"],
       "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "Helm chart updates",
       "schedule": ["* 0-8 * * 1"],
       "labels": ["⎈ Helm"],
       "minimumReleaseAge": "1 day"
