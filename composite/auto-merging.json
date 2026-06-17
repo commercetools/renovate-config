@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Label-gated automerge policy. Automerges minor and patch updates and labels every update by type so commercetools/renovate-action can gate merges on its 🤖 Risk: Low approval. Major updates are labelled for visibility but never automerged.",
+  "packageRules": [
+    {
+      "description": "Automerge minor updates; gated by the 🤖 Risk: Low approval from renovate-action.",
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "addLabels": ["🤖 Dependencies: Minor"]
+    },
+    {
+      "description": "Automerge patch updates; gated by the 🤖 Risk: Low approval from renovate-action.",
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "addLabels": ["🤖 Dependencies: Patch"]
+    },
+    {
+      "description": "Major updates are never automerged; labelled for visibility.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "addLabels": ["🤖 Dependencies: Major"]
+    }
+  ]
+}

@@ -42,12 +42,13 @@ This repository provides modular Renovate presets to standardize dependency upda
 ### Libraries (27+)
 Grouped by ecosystem: React, GraphQL, Testing, TypeScript, Styling, etc.
 
-### Composite Bundles (4)
+### Composite Bundles (5)
 Pre-configured for common project types:
 - `merchant-center-application` — Full Merchant Center apps
 - `merchant-center-application-kit` — Application Kit development
 - `component-library` — UI component libraries (with Storybook)
 - `typescript-service` — Backend utilities and libraries
+- `auto-merging` — Label-gated automerge policy (minor/patch automerge, label by update type)
 
 ## Preset Syntax
 
