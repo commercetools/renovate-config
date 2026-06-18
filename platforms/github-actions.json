@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "GitHub Actions update policy. Third-party actions are pinned to digests (via config:best-practices) for supply-chain safety, but first-party commercetools actions and reusable workflows are exempt: they intentionally track a floating major tag (e.g. @v2) so tag moves propagate to consumers.",
+  "packageRules": [
+    {
+      "description": "Do not pin internal commercetools Actions/reusable workflows to digests; trust the floating major tag.",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["commercetools/**"],
+      "pinDigests": false
+    }
+  ]
+}

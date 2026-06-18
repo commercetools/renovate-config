@@ -6,7 +6,8 @@
     ":preserveSemverRanges",
     "schedule:weekly",
     "schedule:nonOfficeHours",
-    "security:minimumReleaseAgeNpm"
+    "security:minimumReleaseAgeNpm",
+    "github>commercetools/renovate-config//platforms/github-actions.json"
   ],
   "gitAuthor": "Merchant Center Automation <merchant.center.automation+renovate@commercetools.com>",
   "separateMajorMinor": true,
