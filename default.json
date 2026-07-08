@@ -3,6 +3,7 @@
   "description": "Base Renovate configuration for commercetools frontend projects",
   "extends": [
     "config:best-practices",
+    "helpers:pinGitHubActionDigests",
     ":preserveSemverRanges",
     "schedule:weekly",
     "schedule:nonOfficeHours",
@@ -17,8 +18,16 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor"],
       "groupName": "all dependencies"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchPackagePrefixes": ["@commercetools"],
+      "minimumReleaseAge": "0 days"
     },
     {
       "matchDepTypes": ["peerDependencies"],
