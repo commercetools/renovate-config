@@ -97,17 +97,6 @@ Pin to a specific version:
 }
 ```
 
-## Dependency Dashboard
-
-A scheduled GitHub Action maintains a single dashboard issue in this repo with org-wide statistics on merged, risk-labeled Renovate PRs.
-
-- **Scope:** all commercetools repos where the `ct-agent-skills` app is installed
-- **Membership key:** the `🤖 Risk: *` labels applied by `claude[bot]`, so only preset-driven PRs are counted (avoids false positives from the generic dependencies label)
-- **Stats:** merge volume (30d and all time), automerge rate, median time-to-merge, risk and update-type breakdowns, weekly trend, top repos and packages
-- **Refresh:** daily via cron, or on demand via `workflow_dispatch` (with a `dry_run` toggle that prints to the run log instead of writing)
-
-The generator lives in `.github/scripts/dependency-dashboard.js` (unit-tested with `node --test`) and runs from `.github/workflows/dependency-dashboard.yml`. It reads via a short-lived, downscoped token minted from the commercetools-owned `ct-agent-skills` GitHub App. No personal access token is used.
-
 ## Contributing
 
 Propose new presets when the pattern appears in 3+ repositories. Open a PR with:
