@@ -1,0 +1,79 @@
+name: Check Renovate config location
+
+# Reusable workflow. Renovate reads only the FIRST config file it finds in its
+# documented search order and silently ignores the rest, so a stray root
+# `renovate.json` can shadow `.github/renovate.json` with no warning in the run
+# log. This fails the build when a repo has more than one, or has it somewhere
+# other than the org standard.
+#
+# Usage from a consuming repo:
+#
+#   jobs:
+#     renovate-config:
+#       uses: commercetools/renovate-config/.github/workflows/check-config-location.yml@main
+
+on:
+  workflow_call:
+    inputs:
+      expected:
+        description: Path the Renovate config is expected to live at.
+        required: false
+        default: .github/renovate.json
+        type: string
+
+jobs:
+  check:
+    name: Exactly one Renovate config
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Check Renovate config location
+        env:
+          EXPECTED: ${{ inputs.expected }}
+        run: |
+          set -euo pipefail
+
+          # Must stay in Renovate's own search order — the first hit is the
+          # file that actually takes effect.
+          candidates=(
+            renovate.json
+            renovate.json5
+            .github/renovate.json
+            .github/renovate.json5
+            .gitlab/renovate.json
+            .gitlab/renovate.json5
+            .renovaterc
+            .renovaterc.json
+            .renovaterc.json5
+          )
+
+          found=()
+          for f in "${candidates[@]}"; do
+            [ -f "$f" ] && found+=("$f")
+          done
+          if [ -f package.json ] && jq -e 'has("renovate")' package.json >/dev/null 2>&1; then
+            found+=("package.json#renovate")
+          fi
+
+          echo "Found ${#found[@]} Renovate config location(s):"
+          for f in "${found[@]:-}"; do
+            [ -n "$f" ] && echo "  - $f"
+          done
+
+          if [ "${#found[@]}" -eq 0 ]; then
+            echo "::error::No Renovate config found. The org standard is ${EXPECTED}."
+            exit 1
+          fi
+
+          if [ "${#found[@]}" -gt 1 ]; then
+            echo "::error::Multiple Renovate config files found. Renovate uses only ${found[0]} and silently ignores the others, so they are dead config. Keep one file at ${EXPECTED}."
+            exit 1
+          fi
+
+          if [ "${found[0]}" != "${EXPECTED}" ]; then
+            echo "::error::Renovate config is at ${found[0]}, but the org standard is ${EXPECTED}. Move it, or pass a different 'expected' input if this repo is a deliberate exception."
+            exit 1
+          fi
+
+          echo "OK — single Renovate config at ${found[0]}"
