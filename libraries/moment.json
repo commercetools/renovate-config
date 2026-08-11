@@ -3,13 +3,15 @@
   "description": "Groups moment date/time packages",
   "packageRules": [
     {
+      "description": "moment-timezone requires a compatible moment version range - splitting a non-major bump of one from a still-gated major bump of the other installs mismatched versions, which can silently produce wrong timezone data instead of an obvious error. Same failure mode as libraries/graphiql.json.",
       "matchPackageNames": [
         "moment",
         "moment-timezone",
         "@types/moment",
         "@types/moment-timezone"
       ],
-      "groupName": "all moment packages"
+      "groupName": "all moment packages",
+      "separateMajorMinor": false
     }
   ]
 }

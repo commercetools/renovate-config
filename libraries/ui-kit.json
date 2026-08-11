@@ -3,11 +3,13 @@
   "description": "Groups all @commercetools-uikit/* packages",
   "packageRules": [
     {
+      "description": "@commercetools-uikit/* packages are released in lockstep - consuming repos already pin many of them to the identical version string, showing lockstep is the intended usage. Splitting a non-major bump of one package from a still-gated major bump of another installs mismatched versions. Same failure mode as libraries/graphiql.json.",
       "matchSourceUrls": ["https://github.com/commercetools/ui-kit"],
       "groupName": "all ui-kit packages",
       "schedule": ["after 10pm every weekday", "before 8am every weekday"],
       "rangeStrategy": "bump",
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "separateMajorMinor": false
     }
   ]
 }

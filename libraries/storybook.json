@@ -3,9 +3,11 @@
   "description": "Groups Storybook development environment",
   "packageRules": [
     {
+      "description": "@storybook/* addons require an exact major-version match with the storybook core package - splitting a non-major bump of one from a still-gated major bump of another installs mismatched versions. Same failure mode as libraries/graphiql.json.",
       "matchPackageNames": ["storybook"],
       "matchPackagePatterns": ["^@storybook/"],
-      "groupName": "all storybook packages"
+      "groupName": "all storybook packages",
+      "separateMajorMinor": false
     }
   ]
 }

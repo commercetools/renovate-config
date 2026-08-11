@@ -3,8 +3,15 @@
   "description": "Groups React core packages that should be updated together",
   "packageRules": [
     {
-      "matchPackageNames": ["@types/react", "@types/react-dom", "react", "react-dom"],
-      "groupName": "all react dependencies"
+      "description": "react-dom must match react's version exactly - splitting a non-major bump of one from a still-gated major bump of the other installs mismatched versions and breaks at runtime (invalid hook call / two copies of react). See libraries/graphiql.json for the same failure mode.",
+      "matchPackageNames": [
+        "@types/react",
+        "@types/react-dom",
+        "react",
+        "react-dom"
+      ],
+      "groupName": "all react dependencies",
+      "separateMajorMinor": false
     }
   ]
 }

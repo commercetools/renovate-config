@@ -3,8 +3,10 @@
   "description": "Groups Testing Library packages",
   "packageRules": [
     {
+      "description": "@testing-library/react peer-depends on a @testing-library/dom version range - splitting a non-major bump of one from a still-gated major bump of another installs mismatched versions. Same failure mode as libraries/graphiql.json.",
       "matchPackagePatterns": ["^@testing-library/"],
-      "groupName": "all testing-library packages"
+      "groupName": "all testing-library packages",
+      "separateMajorMinor": false
     }
   ]
 }

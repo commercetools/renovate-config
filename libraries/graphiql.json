@@ -3,11 +3,13 @@
   "description": "Groups GraphiQL packages for GraphQL IDE functionality",
   "packageRules": [
     {
+      "description": "graphiql and @graphiql/plugin-explorer only depend on specific @graphiql/react/@graphiql/toolkit ranges, and consumers' embedded editor code often targets a specific major version's API directly. Without this, Renovate splits major from non-major updates within the group by default, so a non-major bump of one package (e.g. @graphiql/react) can ship on its own branch while a major bump of another (e.g. graphiql itself) sits gated elsewhere (e.g. behind dependencyDashboardApproval) - installing incompatible versions side by side. separateMajorMinor: false keeps the whole group on one branch so that can't happen.",
       "matchPackageNames": ["graphiql"],
       "matchPackagePatterns": ["^@graphiql/"],
       "groupName": "all graphiql dependencies",
       "versioning": "semver",
-      "schedule": ["after 10pm every weekday", "before 8am every weekday"]
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "separateMajorMinor": false
     }
   ]
 }

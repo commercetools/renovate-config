@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Groups @commercetools/nimbus* packages with the external peers they're tightly version-coupled to",
+  "packageRules": [
+    {
+      "description": "@commercetools/nimbus, nimbus-icons, and nimbus-tokens are released in lockstep from the same monorepo (commercetools/nimbus) and are currently at the identical upstream version. @chakra-ui/react and the slate family are nimbus's declared peerDependencies with narrow version ranges (nimbus pins slate/slate-react to a single 0.x minor, for example) - splitting a non-major bump of one package in this set from a still-gated major bump of another installs mismatched versions. Same failure mode as libraries/graphiql.json.",
+      "matchPackageNames": [
+        "@commercetools/nimbus",
+        "@commercetools/nimbus-icons",
+        "@commercetools/nimbus-tokens",
+        "@chakra-ui/react",
+        "slate",
+        "slate-react",
+        "slate-history",
+        "slate-hyperscript"
+      ],
+      "groupName": "all nimbus packages",
+      "schedule": ["after 10pm every weekday", "before 8am every weekday"],
+      "rangeStrategy": "bump",
+      "minimumReleaseAge": null,
+      "separateMajorMinor": false
+    }
+  ]
+}
