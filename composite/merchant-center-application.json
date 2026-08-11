@@ -30,7 +30,11 @@
     "github>commercetools/renovate-config//platforms/nodejs.json",
     "github>commercetools/renovate-config//platforms/pnpm.json"
   ],
-  "prConcurrentLimit": 1,
-  "branchConcurrentLimit": 2,
-  "prHourlyLimit": 1
+  "prConcurrentLimit": 5,
+  "branchConcurrentLimit": 10,
+  "prHourlyLimit": 3,
+  "vulnerabilityAlerts": {
+    "prConcurrentLimit": 0,
+    "prHourlyLimit": 0
+  }
 }
