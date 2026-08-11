@@ -3,6 +3,7 @@
   "description": "Groups state management and routing libraries",
   "packageRules": [
     {
+      "description": "react-router-dom must match react-router's version exactly - splitting a non-major bump of one from a still-gated major bump of the other installs mismatched versions. Same failure mode as libraries/graphiql.json.",
       "matchPackageNames": [
         "redux",
         "react-redux",
@@ -13,20 +14,15 @@
         "@types/react-router-dom",
         "@types/history"
       ],
-      "groupName": "all state and routing packages"
+      "groupName": "all state and routing packages",
+      "separateMajorMinor": false
     },
     {
-      "matchPackageNames": [
-        "react-router",
-        "react-router-dom"
-      ],
+      "matchPackageNames": ["react-router", "react-router-dom"],
       "allowedVersions": "< 6"
     },
     {
-      "matchPackageNames": [
-        "history",
-        "@types/history"
-      ],
+      "matchPackageNames": ["history", "@types/history"],
       "allowedVersions": "< 5"
     }
   ]

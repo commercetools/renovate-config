@@ -3,8 +3,10 @@
   "description": "Groups GraphQL client packages",
   "packageRules": [
     {
+      "description": "@apollo/client peer-depends on a graphql version range - splitting a non-major bump of one from a still-gated major bump of the other installs mismatched versions. Same failure mode as libraries/graphiql.json.",
       "matchPackageNames": ["@apollo/client", "graphql"],
-      "groupName": "all apollo-graphql packages"
+      "groupName": "all apollo-graphql packages",
+      "separateMajorMinor": false
     }
   ]
 }

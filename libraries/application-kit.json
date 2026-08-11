@@ -3,11 +3,15 @@
   "description": "Groups all @commercetools-frontend/* packages from merchant-center-application-kit",
   "packageRules": [
     {
-      "matchSourceUrls": ["https://github.com/commercetools/merchant-center-application-kit"],
+      "description": "@commercetools-frontend/* packages are released in lockstep and are known to break when bumped partially (consumers have had to hand-bump this family with sed + pnpm install instead of pnpm up for this reason) - splitting a non-major bump of one package from a still-gated major bump of another installs mismatched versions. Same failure mode as libraries/graphiql.json.",
+      "matchSourceUrls": [
+        "https://github.com/commercetools/merchant-center-application-kit"
+      ],
       "groupName": "all application-kit packages",
       "schedule": ["after 10pm every weekday", "before 8am every weekday"],
       "rangeStrategy": "bump",
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "separateMajorMinor": false
     }
   ]
 }
