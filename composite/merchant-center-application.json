@@ -18,6 +18,7 @@
     "github>commercetools/renovate-config//libraries/linting.json",
     "github>commercetools/renovate-config//libraries/prettier.json",
     "github>commercetools/renovate-config//libraries/moment.json",
+    "github>commercetools/renovate-config//libraries/nimbus.json",
     "github>commercetools/renovate-config//libraries/platform-sdk.json",
     "github>commercetools/renovate-config//libraries/postcss.json",
     "github>commercetools/renovate-config//libraries/react.json",
