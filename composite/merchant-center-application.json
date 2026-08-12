@@ -36,6 +36,8 @@
   "prHourlyLimit": 3,
   "vulnerabilityAlerts": {
     "prConcurrentLimit": 0,
-    "prHourlyLimit": 0
+    "prHourlyLimit": 0,
+    "dependencyDashboardApproval": false,
+    "schedule": ["at any time"]
   }
 }

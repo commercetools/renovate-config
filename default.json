@@ -34,6 +34,10 @@
       "rangeStrategy": "widen"
     }
   ],
+  "vulnerabilityAlerts": {
+    "dependencyDashboardApproval": false,
+    "schedule": ["at any time"]
+  },
   "labels": ["🤖 Type: Dependencies"],
   "stopUpdatingLabel": "🖐 Status: On Hold"
 }
