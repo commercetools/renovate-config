@@ -35,9 +35,10 @@ This repository provides modular Renovate presets to standardize dependency upda
 
 ## Preset Categories
 
-### Platforms (2)
+### Platforms (3)
 - `nodejs` — Node.js runtime
 - `pnpm` — pnpm package manager
+- `docker` — Base image freshness: digest pinning + refresh, tiered update policy (see below)
 
 ### Libraries (27+)
 Grouped by ecosystem: React, GraphQL, Testing, TypeScript, Styling, etc.
@@ -49,6 +50,32 @@ Pre-configured for common project types:
 - `component-library` — UI component libraries (with Storybook)
 - `typescript-service` — Backend utilities and libraries
 - `auto-merging` — Label-gated automerge policy (minor/patch automerge, label by update type)
+
+## Base Image Updates (`platforms/docker`)
+
+Opt-in preset for Dockerfiles and docker-compose files. Pins every `FROM` image to a
+digest and keeps digests fresh, so rebuilt base images (patched glibc, OpenSSL, etc.)
+land automatically. Updates are tiered by risk:
+
+| Update type | Behaviour |
+| --- | --- |
+| digest / pin / patch | Grouped into one weekly off-hours PR and automerged (gated by `renovate-action` 🤖 Risk: Low), `minimumReleaseAge: 1 day` |
+| minor | PR for review, never automerged, `minimumReleaseAge: 5 days` |
+| major | **Dependency Dashboard approval** required (no auto-PR), `minimumReleaseAge: 90 days` — adopt new majors on a stable cadence |
+| node | Constrained to even (LTS) majors only |
+
+Extend it directly to pilot:
+```json
+{
+  "extends": [
+    "github>commercetools/renovate-config",
+    "github>commercetools/renovate-config//platforms/docker"
+  ]
+}
+```
+
+> Not yet part of the base `default` config. Once pilots confirm PR volume and automerge
+> behaviour, it will be added to `default.json` so every consumer gets base-image coverage.
 
 ## Preset Syntax
 
