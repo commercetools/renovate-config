@@ -11,8 +11,7 @@
       "schedule": ["* 0-8 * * 1"],
       "minimumReleaseAge": "1 day",
       "automerge": true,
-      "labels": ["🐳 Docker"],
-      "addLabels": ["🤖 Dependencies: Patch"]
+      "addLabels": ["🤖 Dependencies: Patch", "🐳 Docker"]
     },
     {
       "description": "Minor base-image bumps (e.g. node:20.11 -> node:20.12): open a PR for review, light soak, never automerged.",
@@ -35,7 +34,7 @@
       "description": "Node.js follows an LTS cadence: even majors are LTS, odd majors are short-lived. Never allow odd Node majors as candidates; even majors are still gated by the major approval rule above.",
       "matchManagers": ["dockerfile", "docker-compose"],
       "matchPackageNames": ["node", "docker.io/library/node", "docker.io/node"],
-      "allowedVersions": "/^(\\d*[02468])(\\.|$)/"
+      "allowedVersions": "/^(\\d*[02468])(\\.|-|$)/"
     }
   ]
 }
