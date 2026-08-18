@@ -53,9 +53,9 @@ Pre-configured for common project types:
 
 ## Base Image Updates (`platforms/docker`)
 
-Opt-in preset for Dockerfiles and docker-compose files. Pins every `FROM` image to a
-digest and keeps digests fresh, so rebuilt base images (patched glibc, OpenSSL, etc.)
-land automatically. Updates are tiered by risk:
+Opt-in preset for Dockerfiles and docker-compose files, usable standalone or alongside
+the base config. Pins every base image to a digest and keeps digests fresh, so rebuilt
+base images (patched glibc, OpenSSL, etc.) land automatically. Updates are tiered by risk:
 
 | Update type | Behaviour |
 | --- | --- |
@@ -63,6 +63,10 @@ land automatically. Updates are tiered by risk:
 | minor | PR for review, never automerged, `minimumReleaseAge: 5 days` |
 | major | **Dependency Dashboard approval** required (no auto-PR), `minimumReleaseAge: 90 days` — adopt new majors on a stable cadence |
 | node | Constrained to even (LTS) majors only |
+
+> The 1-day automerge window trades soak time for faster CVE remediation — a compromised
+> upstream rebuild could theoretically land within a day, bounded by the `renovate-action`
+> Risk: Low gate.
 
 Extend it directly to pilot:
 ```json
@@ -131,6 +135,12 @@ Propose new presets when the pattern appears in 3+ repositories. Open a PR with:
 - README documentation
 - Example repositories using it
 - Current duplication across repos
+
+Validate preset changes with the [config validator](https://docs.renovatebot.com/config-validation/):
+
+```bash
+npx --yes --package renovate -- renovate-config-validator <FILENAME>
+```
 
 ## Resources
 
