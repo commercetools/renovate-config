@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Base image update policy for commercetools Dockerfiles and docker-compose files. Pins images to digests and refreshes those digests as upstream tags are rebuilt (the primary base-image freshness / CVE-remediation win), while routing minor bumps to review and majors to Dependency Dashboard approval so new majors are adopted on a stable release cadence. Automerge is gated by the 🤖 Risk: Low approval from commercetools/renovate-action.",
+  "extends": ["docker:pinDigests"],
+  "packageRules": [
+    {
+      "description": "Digest, pin and patch refreshes: group into one weekly off-hours PR and automerge. A rebuilt tag or patch release is the same version with security fixes, so this is the high-value, low-risk path.",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["digest", "pin", "pinDigest", "patch"],
+      "groupName": "base images (digest & patch)",
+      "schedule": ["* 0-8 * * 1"],
+      "minimumReleaseAge": "1 day",
+      "automerge": true,
+      "addLabels": ["🤖 Dependencies: Patch", "🐳 Docker"]
+    },
+    {
+      "description": "Minor base-image bumps (e.g. node:20.11 -> node:20.12): open a PR for review, light soak, never automerged.",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["minor"],
+      "minimumReleaseAge": "5 days",
+      "automerge": false,
+      "addLabels": ["🤖 Dependencies: Minor", "🐳 Docker"]
+    },
+    {
+      "description": "Major base-image / distro bumps are never auto-opened. They wait on the Dependency Dashboard until a human approves, so a new major is adopted on our schedule (maturity / EOL-driven), not on release day.",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "minimumReleaseAge": "90 days",
+      "automerge": false,
+      "addLabels": ["🤖 Dependencies: Major", "🐳 Docker"]
+    },
+    {
+      "description": "Node.js follows an LTS cadence: even majors are LTS, odd majors are short-lived. Never allow odd Node majors as candidates; even majors are still gated by the major approval rule above.",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchPackageNames": ["node", "docker.io/library/node", "docker.io/node"],
+      "allowedVersions": "/^(\\d*[02468])(\\.|-|$)/"
+    }
+  ]
+}
