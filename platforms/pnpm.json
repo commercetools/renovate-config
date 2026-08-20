@@ -5,6 +5,12 @@
     {
       "matchPackageNames": ["pnpm"],
       "groupName": "pnpm"
+    },
+    {
+      "description": "pnpm/npm override entries (pnpm-workspace.yaml overrides, package.json pnpm.overrides/overrides) are hand-authored remediations keyed by version *selector*, not package name -- e.g. \"yaml@1\": \"1.10.3\" pins consumers resolving into the yaml v1 line, it isn't a package named yaml@1. Renovate misreads the selector as a literal package name and proposes cross-major bumps that invert the override's purpose, and rewrites floor+cap ranges into bare caps, dropping the security floor (see commercetools/nimbus#1928 for observed breakage). Suppress majors here: minor/patch still flow, and vulnerabilityAlerts/osvVulnerabilityAlerts bypass this for genuine CVE remediation. Crossing a major on an override band must be done by hand, verifying the actual transitive consumers.",
+      "matchDepTypes": ["pnpm-workspace.overrides", "pnpm.overrides", "overrides"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     }
   ]
 }
