@@ -1,12 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "GitHub Actions update policy. Third-party actions are pinned to digests (via config:best-practices) for supply-chain safety, but first-party commercetools actions and reusable workflows are exempt: they intentionally track a floating major tag (e.g. @v2) so tag moves propagate to consumers.",
+  "description": "GitHub Actions update policy. Third-party actions are pinned to digests (via config:best-practices) for supply-chain safety. Updates are grouped monthly to reduce PR churn — SHA pinning is the security mechanism, not update frequency.",
   "packageRules": [
     {
       "description": "Do not pin internal commercetools Actions/reusable workflows to digests; trust the floating major tag.",
       "matchManagers": ["github-actions"],
       "matchPackageNames": ["commercetools/**"],
       "pinDigests": false
+    },
+    {
+      "description": "Group all non-major GitHub Actions updates into a single monthly PR.",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "all GitHub Actions (non-major)",
+      "schedule": ["before 9am on the first day of the month"],
+      "automerge": true
+    },
+    {
+      "description": "Major GitHub Actions updates get their own PR for review, still monthly.",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "schedule": ["before 9am on the first day of the month"]
     }
   ]
 }
